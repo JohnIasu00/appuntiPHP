@@ -1,0 +1,676 @@
+BASI FUNZIONAMENTO SITO WEB
+
+	SITO STATICO
+		sito costruito solo con HTML e CSS
+		non cambia in base all'utente
+
+
+	SITO DINAMICO
+		sito costruito anche con PHP e MySQL
+		cambia in base all'utente 
+		il server genera la pagina web con php
+
+		
+
+
+	STRUMENTI NECESSARI PER CREARE UN SITO DINAMICO
+
+
+		Apache 
+			Questo è chiamato un server web. Questo è il più importante di tutti i programmi, in quanto è responsabile della consegna di pagine Web ai visitatori. Tuttavia, Apache gestisce solo siti Web statici (può elaborare solo pagine HTML). Essa deve pertanto essere integrata con altri programmi.
+
+		PHP 
+			È un plugin per Apache che lo rende in grado di elaborare pagine web dinamiche in PHP. Chiaramente, combinando Apache e PHP, il nostro computer sarà in grado di leggere le pagine web in PHP.
+
+		MySQL
+			Questo è il software di gestione del database. Ti consente di salvare i dati in modo organizzato (come l'elenco dei membri del tuo sito). Non ne avremo bisogno immediatamente, ma potremmo anche installarlo subito.
+
+
+
+
+	INSTALLARE  MAMP
+		https://www.mamp.info/fr/downloads/older-versions/
+
+		CARTELLA DOVE ANDREMO A SALVARE I NOSTRI FILE 
+			C:\MAMP\htdocs
+
+
+
+
+
+	COMANDI PHP 
+
+		si scrivono direttamente all'interno della pagina usando  un tag php come :
+
+			<?php   ...   ?>
+
+			<?   ...   ?>
+
+			<%   ...   %>
+
+			<?=   ...   ?>
+
+
+
+	STAMPARE TESTO A SCHERMO
+
+			echo "Questo testo verrá stampato a schermo!!! non le virgolette che servono solo per delimitare";
+
+			echo("anche questo testo senza parentesi e senza virgolette"); 
+
+
+			se voglio visualizzare i caratteri speciali basta anteporci davanti un back slash \ .
+
+			i tag all'interno di un tag php vengono visti come testo.
+
+
+		STAMPARE DATA E ORA DI APERTURA PAGINA
+
+				echo date('d/m/Y h:i:s');
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+TIPI DI VARIABILI
+
+	con nome preceduto da un $ 
+
+		string			$nome = "Giangiacomino";
+
+					posso usare anche le apostrofo al posto delle virgolette
+
+						$mail = 'Giangiacomino@gmail.com'
+
+					se voglio memorizzare nella stringa delle "" o uso il back slash \ oppure devo aver inioziato la stringa con le apostrofi''
+
+
+		int   		$userAge = 17;
+
+
+
+		float		$price = 57.3;
+
+		bool		$isAuthor = true;
+					$isAdministrator = false;
+
+		NULL		$noValue = NULL;
+
+
+
+STAMPARE DEL CONTENUTO DI UNA VARIABILE
+	
+		$fullname = 'Mathieu Nebra';
+		echo $fullname;
+	
+
+
+CONCATENARE UNA VARIABILE
+
+		<?php
+		$fullname = "Mathieu Nebra";
+		echo "Bonjour ";
+		echo $fullname;
+		echo " et bienvenue sur le site !";
+		?>
+
+		OPPURE TUTTO SU UNA RIGA con le virgolette""
+
+		<?php
+		$fullname = "Mathieu Nebra";
+		echo "Bonjour $fullname et bienvenue sur le site !";
+		?>
+
+		NB NON funziona se al posto delle virgolette uso le apostrofo
+
+
+CALCOLI SEMPLICI 
+
+	<?php
+		$number = 2 + 4; // $number prend la valeur 6
+		$number = 5 - 1; // $number prend la valeur 4
+		$number = 3 * 5; // $number prend la valeur 15
+		$number = 10 / 2; // $number prend la valeur 5
+
+		
+		$number = 3 * 5 + 1; // $number prend la valeur 16
+		$number = (1 + 2) * 2; // $number prend la valeur 6
+	?>
+
+
+
+	<?php
+		$number = 10;
+		$result = ($number + 5) * $number; // $result prend la valeur 150
+	?>
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+CONDIZIONI IN PHP
+
+if()
+
+		<?php
+		$isEnabled = true; // La condition d'accès
+
+		if ($isEnabled == true) {
+		    echo "Vous êtes autorisé(e) à accéder au site ✅";
+		}
+		?>
+
+
+		ALTERNATIVA IF
+
+				<?php
+				$isAllowedToEnter = "Oui";
+
+				// SI on a l'autorisation d'entrer
+				if ($isAllowedToEnter == "Oui") {
+				    // instructions à exécuter quand on est autorisé à entrer
+				} // SINON SI on n'a pas l'autorisation d'entrer
+				elseif ($isAllowedToEnter == "Non") {
+				    // instructions à exécuter quand on n'est pas autorisé à entrer
+				} // SINON (la variable ne contient ni Oui ni Non, on ne peut pas agir)
+				else {
+				    echo "Euh, je ne comprends pas ton choix, tu peux me le rappeler s'il te plaît ?";
+				}
+				?>
+
+
+
+if - else()
+
+		<?php
+		$isEnabled = true;
+
+		if ($isEnabled == true) {
+		    echo "Vous êtes autorisé(e) à accéder au site ✅";
+		}
+		else {
+		    echo "Accès refusé ❌ ";
+		}
+		?>
+
+
+
+
+elseif()
+
+		<?php
+		$isAllowedToEnter = "Oui";
+
+		// SI on a l'autorisation d'entrer
+		if ($isAllowedToEnter == "Oui") {
+		    // instructions à exécuter quand on est autorisé à entrer
+		} // SINON SI on n'a pas l'autorisation d'entrer
+		elseif ($isAllowedToEnter == "Non") {
+		    // instructions à exécuter quand on n'est pas autorisé à entrer
+		} // SINON (la variable ne contient ni Oui ni Non, on ne peut pas agir)
+		else {
+		    echo "Euh, je ne comprends pas ton choix, tu peux me le rappeler s'il te plaît ?";
+		}
+		?>
+
+
+
+
+
+switch()
+
+		<?php
+		$grade = 10;
+
+		switch ($grade) // on indique sur quelle variable on travaille
+		{ 
+		    case 0: // dans le cas où $grade vaut 0
+		        echo "Tu es vraiment un gros nul !!!";
+		    break;
+		    
+		    case 5: // dans le cas où $grade vaut 5
+		        echo "Tu es très mauvais";
+		    break;
+		    
+		    case 7: // dans le cas où $grade vaut 7
+		        echo "Tu es mauvais";
+		    break;
+		    
+		    case 10: // etc. etc.
+		        echo "Tu as pile poil la moyenne, c'est un peu juste…";
+		    break;
+		    
+		    case 12:
+		        echo "Tu es assez bon";
+		    break;
+		    
+		    case 16:
+		        echo "Tu te débrouilles très bien !";
+		    break;
+		    
+		    case 20:
+		        echo "Excellent travail, c'est parfait !";
+		    break;
+		    
+		    default:
+		        echo "Désolé, je n'ai pas de message à afficher pour cette note";
+		}
+		?>		
+				
+
+CONDIZIONE TERNARIA
+
+		<?php
+		$userAge = 24;
+
+		$isAdult = ($userAge >= 18) ? true : false;
+
+		// Ou mieux, dans ce cas précis
+		$isAdult = ($userAge >= 18);
+		?>
+
+
+---------------------------------------------------------------------------
+
+
+ARRAY 
+		<?php
+
+		$user1 = ['Mickaël Andrieu', 'email', 'S3cr3t', 34];
+
+		echo $user1[0]; // "Mickaël Andrieu"
+		echo $user1[1]; // "email"
+		echo $user1[3]; // 34
+
+
+
+ARRAY DI ARRAY
+
+	<?php
+
+	$mickael = ['Mickaël Andrieu', 'mickael.andrieu@exemple.com', 'S3cr3t', 34];
+	$mathieu = ['Mathieu Nebra', 'mathieu.nebra@exemple.com', 'devine', 33];
+	$laurene = ['Laurène Castor', 'laurene.castor@exemple.com', 'P4ssw0rD', 28];
+
+	$users = [$mickael, $mathieu, $laurene];
+
+	echo $users[1][1]; // "mathieu.nebra@exemple.com"
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------
+
+CICLI
+
+	while()
+
+		<?php
+		while ($isValid) {
+		    // instructions à exécuter dans la boucle
+		}
+		?>
+
+
+
+
+		<?php
+		$lines = 1;
+
+		while ($lines <= 100) {
+		    echo 'Je ne dois pas regarder les mouches voler quand j\'apprends le PHP.<br />';
+		    $lines++;    // $lines = $lines + 1
+		}
+		?>
+
+
+
+		PERCORRERE UN ARRAY BI DIMENSIONALE
+
+				<?php
+
+				$lines = 3; // nombre d'utilisateurs dans le tableau
+				$counter = 0;
+
+				while ($counter < $lines) {
+				    echo $users[$counter][0] . ' ' . $users[$counter][1] . '<br />';
+				    $counter++; // Ne surtout pas oublier la condition de sortie !
+				}
+
+
+
+
+	for()
+
+		PERCORRERE UN ARRAY BI DIMENSIONALE  CON FOR
+
+		<?php
+		for ($lines = 0; $lines <= 2; $lines++)
+		{
+		    echo $users[$lines][0] . ' ' . $users[$lines][1] . '<br />';
+		}
+		?>
+
+
+------------------------------------------------------------------------------------
+
+PHP HA 2 tipi di tabelle
+
+	TAB NUMERATE
+
+		le caselle seguono una numerazione
+
+
+		<?php
+
+		$users = ['Cassoulet', 'Couscous', 'Escalope Milanaise', 'Salade César',];
+
+		// La fonction array permet aussi de créer un array
+		$users = array('Cassoulet', 'Couscous', 'Escalope Milanaise');
+		?>
+
+
+		SI PUO ANCHE CREARE MANUALMENTE
+
+			<?php
+			$recipes[0] = 'Cassoulet';
+			$recipes[1] = 'Couscous';
+			$recipes[2] = 'Escalope Milanaise';
+			?>
+
+		NON SONO OBBLIGATO A NUMERARE IO LE CASELLE , LO PUO FARE PHP IN AUTOMATICO
+
+			<?php
+			$recipes[] = 'Cassoulet'; // Créera $recipes[0]
+			$recipes[] = 'Couscous'; // Créera $recipes[1]
+			$recipes[] = 'Escalope Milanaise'; // Créera $recipes[2]
+			?>
+
+
+	TAB ASSOCIATIVE
+
+			le caselle hanno una parola chiave che le identifica
+			utile per stoccare delle ricette di cucina
+
+
+				<?php
+				// Une bien meilleure façon de stocker une recette !
+				$recipe = [
+				    'title' => 'Cassoulet',
+				    'recipe' => 'Etape 1 : des flageolets, Etape 2 : ...',
+				    'author' => 'john.doe@exemple.com',
+				    'enabled' => true,
+				];	//da notare che c'é solo un punto e virgola
+
+				?>
+
+
+				PER ESTRARRE IL TITOLO DELLA RICETTA SCRIVERO
+
+					<?php
+					echo $recipe['title'];
+					?>
+
+			UTILIZZARE IL FOR EACH PER PERECORRERE UNA TABELLA
+
+					<?php
+
+					// Déclaration du tableau des recettes
+					$recipes = [
+					    ['Cassoulet','[...]','mickael.andrieu@exemple.com',true,],
+					    ['Couscous','[...]','mickael.andrieu@exemple.com',false,],
+					];
+
+					foreach ($recipes as $each) {
+					    echo $each[0]; // Affichera Cassoulet, puis Couscous
+					}
+
+					//in $each a ogni ciclo verra registrato un elemento diverso della tabella
+
+
+			IL FOR EACH É MOLTO UTILE PER PERCORRERE I TAB ASSOCIATIVI
+
+					<?php
+					$recipe = [
+					    'title' => 'Cassoulet',
+					    'recipe' => 'Etape 1 : des flageolets, Etape 2 : ...',
+					    'author' => 'mickael.andrieu@exemple.com',
+					    'enabled' => true,
+					];
+
+					foreach ($recipe as $value) {
+					    echo $value;
+					}
+
+					/**
+					 * AFFICHE
+					 * CassouletEtape 1 : des flageolets, Etape 2 : ...mickael.andrieu@exemple.com1
+					 */
+
+
+			DIVENTA ANCORA PIU  INTERESANTE SE USO DEI TAB DI TABELLE
+
+					<?php
+
+					$recipes = [
+					    [
+					        'title' => 'Cassoulet',
+					        'recipe' => '',
+					        'author' => 'mickael.andrieu@exemple.com',
+					        'is_enabled' => true,
+					    ],
+					    [
+					        'title' => 'Couscous',
+					        'recipe' => '',
+					        'author' => 'mickael.andrieu@exemple.com',
+					        'is_enabled' => false,
+					    ],
+					    [
+					        'title' => 'Escalope milanaise',
+					        'recipe' => '',
+					        'author' => 'mathieu.nebra@exemple.com',
+					        'is_enabled' => true,
+					    ],
+					    [
+					        'title' => 'Salade Romaine',
+					        'recipe' => '',
+					        'author' => 'laurene.castor@exemple.com',
+					        'is_enabled' => false,
+					    ],
+					];
+
+					foreach($recipes as $recipe) {
+					    echo $recipe['title'] . ' contribué(e) par : ' . $recipe['author'] . PHP_EOL; 
+					}
+
+
+				RECUPERARE LA CHIAVE DI UNA TABELLA
+
+
+					<?php foreach($recipe as $property => $propertyValue) ?>
+
+							$property che conterrà la chiave dell'elemento analizzato ("titolo", "autore", ecc.).
+
+							$propertyValue che conterrà il valore dell'elemento corrente ("Cassoulet", "laurene.castor@exemple.com", ecc.).
+
+
+							esempio:
+
+									<?php
+									$recipe = [
+									    'title' => 'Salade Romaine',
+									    'recipe' => 'Etape 1 : Lavez la salade ; Etape 2 : euh ...',
+									    'author' => 'laurene.castor@exemple.com',
+									];
+
+									foreach($recipe as $property => $propertyValue)
+									{
+									    echo '[' . $property . '] vaut ' . $propertyValue . PHP_EOL;
+									}
+
+
+					
+				VISUALIZZARE RAPIDAMENTE UNA TABELLA CON print_r	
+					se non hai bisogno di una formattazione speciale e vuoi solo sapere cosa c'è nella tabella
+
+							<?php
+
+							$recipes = [
+							    [
+							        'title' => 'Cassoulet',
+							        'recipe' => '',
+							        'author' => 'mickael.andrieu@exemple.com',
+							        'is_enabled' => true,
+							    ],
+							    [
+							        'title' => 'Couscous',
+							        'recipe' => '',
+							        'author' => 'mickael.andrieu@exemple.com',
+							        'is_enabled' => false,
+							    ],
+							];
+
+							echo '<pre>';
+							print_r($recipes);
+							echo '</pre>';
+
+
+							//uso la ward pre per avere una visualizzazione piu carina 
+
+
+
+
+			RICERCA IN UNA TABELLA
+
+				- array_key_exists      per verificare se nella tabella è presente una chiave.
+
+										Deve essere dato:
+												Nome della chiave da cercare.
+												Quindi il nome della tabella in cui eseguiamo la ricerca:
+
+												es:
+													<?php array_key_exists('cle', $array); ?>
+
+												La funzione restituisce un valore booleano:
+													true (true) se la chiave è nella tabella;
+													false (false) se la chiave non è presente.
+
+
+										esempio dove lo utilizzo con un if:
+												<?php
+												$recipe = [
+												    'title' => 'Salade Romaine',
+												    'recipe' => 'Etape 1 : Lavez la salade ; Etape 2 : euh ...',
+												    'author' => 'laurene.castor@exemple.com',
+												];
+
+												if (array_key_exists('title', $recipe))
+												{
+												    echo 'La clé "title" se trouve dans la recette !';
+												}
+
+												if (array_key_exists('commentaires', $recipe))
+												{
+												    echo 'La clé "commentaires" se trouve dans la recette !';
+												}
+
+
+
+				-  in_array              per verificare se nella tabella esiste un valore.
+
+										stesso metodoi di utilizzo del precedente
+										La funzione restituisce un valore booleano:
+													true (true) se il valore  è nella tabella;
+													false (false) se il valore non è presente.
+
+										esempio con un if:
+
+																							<?php
+												$users = [
+												    'Mathieu Nebra',
+												    'Mickaël Andrieu',
+												    'Laurène Castor',
+												];
+
+												if (in_array('Mathieu Nebra', $users))
+												{
+												    echo 'Mathieu fait bien partie des utilisateurs enregistrés !';
+												}
+
+												if (in_array('Arlette Chabot', $users))
+												{
+												    echo 'Arlette fait bien partie des utilisateurs enregistrés !';
+												}
+
+
+
+
+   				-  array_search          per recuperare la chiave per un valore nella matrice.
+
+   										Se ha trovato il valore, restituisce la chiave corrispondente (nel caso di una matrice numerato, la chiave sarà un numero; nel caso di una matrice associativa, la chiave sarà un nome).
+
+   										Se non ha trovato il valore, restituisce false.
+
+
+   										esempio con if:
+
+   											<?php
+											$users = [
+											    'Mathieu Nebra',
+											    'Mickaël Andrieu',
+											    'Laurène Castor',
+											];
+
+											$positionMathieu = array_search('Mathieu Nebra', $users);
+											echo '"Mathieu" se trouve en position ' . $positionMathieu . PHP_EOL;
+
+											$positionLaurène = array_search('Laurène Castor', $users);
+											echo '"Laurène" se trouve en position ' . $positionLaurène . PHP_EOL;
+												
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

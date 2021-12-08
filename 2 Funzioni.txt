@@ -1,0 +1,194 @@
+
+
+
+
+PARAMETRI DI UNA FUNZIONE
+
+	posso inserirli come una tabella
+
+	funzioneAllowRecipe([
+	    'title' => 'Escalope milanaise',
+	    'recipe' => '',
+	    'author' => 'mathieu.nebra@exemple.com',
+	    'is_enabled' => true,
+	]);
+
+
+	o ad uno ad uno separati con una virgola
+
+	<?php
+	fonctionImaginaire(17, 'Vert', true, 41.7);
+
+
+	RECUPERARE RITORNO DI UNA FUNZIONE
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+FUNZIONI PIU NOTE DI PHP
+
+	
+	MANIPOLAZIONE TESTO 
+
+
+		strlen 			per calcolare la lunghezza di una stringa di caratteri.
+
+
+						ESEMPIO:
+							<?php
+							$recipe = 'Etape 1 : des flageolets ! Etape 2 : de la saucisse toulousaine';
+							$length = strlen($recipe);
+							 
+							echo 'La phrase ci-dessous comporte ' . $length . ' caractères :' . PHP_EOL . $recipe;
+
+
+
+
+
+		str_replace 	per trovare e sostituire una stringa di caratteri.
+
+						ESEMPIO:
+							<?php
+							echo str_replace('c', 'C', 'le cassoulet, c\'est très bon');  //sostituisce la c minuscola con la maiuscola
+
+
+
+		sprintf 		per formattare una stringa di caratteri.
+
+						ESEMPIO:
+
+							<?php
+							$recipe = [
+							    'title' => 'Salade Romaine',
+							    'recipe' => 'Etape 1 : Lavez la salade ; Etape 2 : euh ...',
+							    'author' => 'laurene.castor@exemple.com',
+							];	
+
+								//notare come inserisco gli argomenti in questa funzione
+
+							echo sprintf(	
+							    '%s par "%s" : %s',
+							    $recipe['title'],
+							    $recipe['author'],
+							    $recipe['recipe']
+							);
+
+
+
+
+
+	RECUPERARE ORA E DATA 
+
+			<?php
+			// Enregistrons les informations de date dans des variables
+
+			$day = date('d');
+			$month = date('m');
+			$year = date('Y');
+
+			$hour = date('H');
+			$minut = date('i');
+
+			// Maintenant on peut afficher ce qu'on a recueilli
+			echo 'Bonjour ! Nous sommes le ' . $day . '/' . $month . '/' . $year . 'et il est ' . $hour. ' h ' . $minut;
+			?>
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+	CREAZIONE FUNZIONE
+
+
+
+
+
+
+
+
+	ESEMPIO DI FUNZIONE CHE VERIFICA SE IL VALORE is_enabled é true o false e restituisce il valore
+
+		<?php
+
+			function isValidRecipe(array $recipe) : bool
+			{
+			    if (array_key_exists('is_enabled', $recipe)) {
+			        $isEnabled = $recipe['is_enabled'];
+			    } else {
+			        $isEnabled = false;
+			    }
+
+			    return $isEnabled;
+			}
+
+
+
+
+
+			Per creare una funzione,
+
+			Devi digitare (in francese, significa "funzione").function
+
+			Quindi dagli un nome. Ad esempio, questo si chiama .isValidRecipe
+
+			Ciò che è più particolare dopo è ciò che mettiamo tra parentesi: c'è una variabile. Questo è il parametro che la funzione deve funzionare, ecco la nostra tabella.
+
+			Possiamo – e questa è una buona pratica – definire il tipo di variabile attesa: qui, vogliamo un array quindi prefissiamo la variabile con la parola chiave .$recipesarray
+
+			La nostra funzione deve necessariamente essere chiamata con un parametro (una ricetta), altrimenti genererà un errore.
+
+			Potresti aver notato che questa riga è l'unica che non termina con un punto e virgola. Questo è normale, non è un'istruzione ma solo una "carta d'identità" della funzione (il suo nome, i suoi parametri ...).
+
+			La nostra funzione può anche – e questa è una seconda buona pratica – dare un tipo di ritorno, cioè il tipo di valore che la funzione deve restituire.
+
+			Qui recuperiamo o , o così il tipo è bool.truefalse
+
+			Quindi si individua l'apparecchio. Consentono di contrassegnare i limiti della funzione. Quest'ultimo inizia non appena ce n'è uno e termina quando c'è un file . Nel mezzo, c'è il suo contenuto.{}
+
+			Questo è tutto, la funzione è creata, non è più necessario toccarla. Quindi, per richiamarlo, è sufficiente indicare il suo nome e specificare i suoi parametri tra parentesi.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
